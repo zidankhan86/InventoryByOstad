@@ -15,3 +15,37 @@
         </div>
     </div>
 </div>
+
+
+<script>
+
+ProfessionalSkills();
+
+
+   async function ProfessionalSkills(){
+
+
+    try {
+
+        let URL = '/skillsData'
+        let response = await axios.get(URL);
+        response.data.forEach(element => {
+
+            document.getElementById('skills-list').innerHTML += (`<div class="col p-2 mb-4 mb-md-0">
+                    <div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                       ${element['name']}
+                    </div>
+                    </div>`)
+
+        });
+
+    } catch (error) {
+
+        alert('Error')
+
+    }
+
+    }
+</script>
+
+
