@@ -13,14 +13,54 @@
                         Download Resume
                     </a>
                 </div>
-
                 <div id="experience-list">
-
                 </div>
-
-
-
             </section>
         </div>
     </div>
 </div>
+
+
+
+<script>
+
+            Language();
+
+            async function Language(){
+
+   try {
+
+    let URL = "/experiencesData"
+    let response = await axios.get(URL);
+
+
+    response.data.forEach(element => {
+
+        document.getElementById('experience-list').innerHTML +=(`<div class="card shadow border-0 rounded-4 mb-5">
+                        <div class="card-body p-5">
+                            <div class="row align-items-center gx-5">
+                                <div class="col text-center text-lg-start mb-4 mb-lg-0">
+                                    <div class="bg-light p-4 rounded-4">
+                                        <div class="text-primary fw-bolder mb-2">${element['duration']}</div>
+                                        <div class="small fw-bolder">${element['title']}</div>
+                                        <div class="small text-muted">${element['designation']}</div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-8"><div>${element['details']}</div></div>
+                            </div>
+                        </div>
+                    </div>`)
+
+    });
+
+
+   } catch (error) {
+
+    alert('Error')
+
+   }
+
+
+    }
+</script>
+
