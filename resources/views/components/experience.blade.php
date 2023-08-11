@@ -22,7 +22,38 @@
 
 
 
-<script>
+                <script>
+
+                ResumeLink();
+
+                async function ResumeLink() {
+
+                    try {
+
+                let URL = "/resumeLink"
+
+                document.getElementById('loading-div').classList.remove('d-none');
+           document.getElementById('content-div').classList.add('d-none');
+
+                let response = await axios.get(URL);
+
+                let link = response.data['downloadLink'];
+
+                document.getElementById('CVDownloadLink').setAttribute('href' ,link);
+
+
+            } catch (error) {
+
+                alert('Error')
+
+            }
+
+}
+
+
+
+
+
 
             Language();
 

@@ -29,7 +29,14 @@ LanguageList();
 
 
     let URL = '/languageData'
+
+          
+
     let response = await axios.get(URL);
+
+           document.getElementById('loading-div').classList.add('d-none');
+           document.getElementById('content-div').classList.remove('d-none');
+
 
     response.data.forEach(element => {
 
